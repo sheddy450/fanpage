@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image'
 import cha from '/public/cha.png'
-import namjoo from '/public/NamJoo.jpg'
+import namjoo from '/public/namjoo.jpg'
 import {FiMenu} from 'react-icons/fi'
 import {RxCross2} from 'react-icons/rx'
 import Contact from './contact/index'
