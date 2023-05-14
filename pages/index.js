@@ -1,124 +1,87 @@
+import React from 'react';
+import { useState } from 'react';
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import cha from '/public/cha.png'
+import namjoo from '/public/NamJoo.jpg'
+import {FiMenu} from 'react-icons/fi'
+import {RxCross2} from 'react-icons/rx'
+import Contact from './contact/index'
 
 export default function Home() {
+
+  const [showNav, setShowNav] = useState(false);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main className='w-[45em] md:w-[100%]'>
+      <nav id='home' className=' md:px-3 flex md:items-center justify-between font-poppins lg:items-center h-[70px] shadow-lg w-[100%] text-gray-600 font-bold text-lg lg:text-2xl'>
+        <h1 className=' text-amber-800 font-bold my-auto'>Namjoo Fan Club</h1>
+    {showNav ? (
+        <ul onClick={()=> setShowNav(!showNav)} className='fixed bg-black h-[25em] space-y-14 pl-5 w-[20em] text-white right-0 md:hidden md:space-x-10 pr-10'>
+            <button className=' text-white p-5  text-3xl' onClick={()=> setShowNav(!showNav)}><RxCross2 className=' absolute right-5'/></button>
+            <li className='text-2xl'><a href='#home'>Home</a></li>
+            <li className='text-2xl'><a href="#about">About</a></li>
+            <li className='text-2xl'><a href='#form'>Registration</a></li>
+        </ul>
+          ):(
+            <ul className='hidden md:flex items-center md:space-x-10 pr-10'>
+            <li><a href='#home'>Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href='#form'>Registration</a></li>
+          </ul>)
+        }
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+    <button className='md:hidden text-3xl' onClick={ ()=>setShowNav(!showNav)}><FiMenu/></button>
+    </nav>
+          <div id='home' className='lg:flex grid lg:grid-cols-2 items-center justify-evenly flex-wrap bg-gradient-to-b mt-10 h-[800px] lg:h-[80vh] from-white to-[#e6d2d2]'>
+          <div className='md:pl-5'>
+                <h1 className='text-6xl text-gray-800 max-w-sm'>NamJoo Fan club</h1>
+                <p className='font-poppins mb-14 text-xl font-bold'>Exclusive access to joo's life</p>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+                <a href='#form' className=' px-7 py-2 rounded-lg text-white font-poppins font-bold shadow-lg hover:text-2xl bg-[#9D5151]'>connect!</a>
+            </div>
+            <div>
+                <div className='absolute z-2 h-[400px] w-[20em] border-2 rounded-2xl border-gray-700'></div>
+                <div className='mx-auto relative -ml-7 mt-6'>
+                    <Image src={cha} className='object-cover h-[350px] w-[20em] bg-[#9D5151] rounded-2xl' width={400} height={100}  alt='Namjoo'/>
+                </div>
+            </div>
+          </div>
+          {/* ------------------About------------- */}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <section id='about' className='flex flex-wrap justify-around mx-3 pt-5 my-5'>
+            <div>
+                <Image src={namjoo} width={400} height={100} className='rounded-xl h-[40em] w-[30em]' alt='Namjoo'/>
+            </div>
+            <div>
+                <h1 className='text-center text-2xl font-bold text-gray-600'>About</h1>
+                <div className='max-w-lg font-poppins text-lg'>
+                <p>Welcome to Nam Joo fan-based club!As a member of this fan club, you'll get exclusive access to all the latest updates, news, and behind-the-scenes glimpses of Nam Joo. By registering for the fan club, you'll be able to join a community of Nam fans from all around the world.</p><br/>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
+                  <p>You'll have the opportunity to connect with other fans, share your love for Nam, and even attend exclusive fan club events. You'll also have access to exclusive content that you won't find anywhere else. You'll be able to see photos and videos from Nam's Screen shows and events, and you'll get to watch new videos and see behind-the-scenes footage before anyone else. </p><br/>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+                  <p>But perhaps the biggest benefit of being a member of the Nam Joo Fan Club is the opportunity to get closer to Nam herself. Members of the fan club have the chance to win meet-and-greet passes, attend private events with Nam, and even receive personal messages from him.To become a member of the Nam Joo Fan Club, simply fill out the registration form below. We can't wait to welcome you into the fan club community and share all the amazing experiences that come with being a Nam Joo fan</p>
+                </div>
+
+            </div>
+          </section>
+          {/* -------------Contact------------- */}
+
+          <section id='form' className=' grid bg-gradient-to-b from-[#dfd4d4] to-white'>
+            <h1 className='text-center font-poppins font-bold text-2xl my-2'>Registration</h1>
+           <Contact/>
+          </section>
+          <section className='mt-10 pt-20 bg-gradient-conic from-[#573131] to-[#675454] h-[40vh] text-center font-poppins'>
+            <h1 className='text-white text-2xl font-bold '>Get started with connecting to Nam Joo Fan Club</h1>
+            <p className='text-white'>click the button below to register and stay connected with Nam joo</p>
+            <button className='bg-white px-5 mt-10 hover:text-2xl py-2 mx-auto rounded-lg'><a href="#form">Click Here!</a></button>
+          </section>
+          <footer className='flex justify-between p-2 py-5 font-poppins'>
+            <h1 className='font-bold text-[#9D5151] text-xl'>NamJoo Fanclub</h1>
+            <ul className='flex space-x-5 font-bold'>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#form">Registration</a></li>
+            </ul>
+          </footer>
     </main>
   )
 }
